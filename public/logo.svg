@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Logo">
+  <rect width="64" height="64" rx="16" fill="#e0556b"/>
+  <!-- simple shuttlecock mark: feathers + cork -->
+  <path d="M22 14 L42 14 L37 38 L27 38 Z" fill="#fff"/>
+  <path d="M27.5 14 L29.5 38 M32 14 L32 38 M36.5 14 L34.5 38" stroke="#e0556b" stroke-width="1.6" fill="none"/>
+  <path d="M20 14 Q32 8 44 14" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <ellipse cx="32" cy="45" rx="7.5" ry="6" fill="#fff"/>
+</svg>

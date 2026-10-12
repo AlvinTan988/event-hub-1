@@ -1,0 +1,41 @@
+# Render Blueprint: one-click setup of the web service + persistent disk for the database.
+# Cost at time of writing: entry-level paid instance (US$7/mo) + 1 GB disk (US$0.25/mo). Free instances cannot keep
+# a database file, so a paid instance with a disk is required.
+services:
+  - type: web
+    name: event-hub
+    runtime: node
+    plan: 0.5c-512mb   # the US$7/month, 512 MB instance (Render's entry-level paid size)
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeployTrigger: commit
+    disk:
+      name: data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DB_PATH
+        value: /var/data/data.db
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CURRENCY
+        value: aud
+      - key: EVENT_TIMEZONE
+        value: Australia/Melbourne
+      - key: SITE_NAME
+        sync: false
+      - key: SITE_TAGLINE
+        sync: false
+      - key: MAIL_FROM
+        sync: false
+      - key: RESEND_API_KEY
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
+      - key: ADMIN_EMAILS
+        sync: false
